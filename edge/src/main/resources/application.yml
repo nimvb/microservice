@@ -1,0 +1,28 @@
+
+
+spring:
+  application:
+    name: edge-service
+
+eureka:
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:5051/eureka}
+
+
+server:
+  port: 5050
+zuul:
+  ignored-services: "*"
+  routes:
+    userapi:
+      path: /userapi/**
+      serviceId: user-service
+      stripPrefix: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

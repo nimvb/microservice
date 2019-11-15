@@ -1,0 +1,17 @@
+server:
+  port: 5051
+
+
+eureka:
+  instance:
+    hostname: localhost
+
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:5051/eureka}
+
+  server:
+    wait-time-in-ms-when-sync-empty: 0
+    enable-self-preservation: false
